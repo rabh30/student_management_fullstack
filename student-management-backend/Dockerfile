@@ -25,7 +25,7 @@ RUN if [ -f mvnw ]; then ./mvnw package -DskipTests; else mvn package -DskipTest
 
 # --- Stage 2: Create the final lightweight image using JRE ---
 # Use a JRE image matching your Java version
-FROM openjdk:21-jre-slim
+FROM eclipse-temurin:21-jre-alpine
 
 # Set the working directory
 WORKDIR /app
