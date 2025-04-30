@@ -193,8 +193,8 @@
 }
 
 .login-card .error-message {
-    color: #ff8a8a;
-    font-size: 0.9rem;
+    color: #f02929;
+    font-size: 1rem;
     font-weight: 500;
     transition: visibility 0s linear;
 }
