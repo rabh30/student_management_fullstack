@@ -1,0 +1,26 @@
+/* src/styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+    /* Define variables needed */
+    --color-text-primary: #333;
+    --color-white: #ffffff;
+    --color-light-gray-placeholder: rgba(255, 255, 255, 0.7);
+    --color-border-light: rgba(255, 255, 255, 0.4);
+    --input-bg: rgba(255, 255, 255, 0.2);
+    --color-error-red: #dc3545;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}

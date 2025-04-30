@@ -1,0 +1,217 @@
+/* src/app/components/student-management/student-management.component.css */
+
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px;
+    box-sizing: border-box;
+    background-image: url('macos.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* --- iOS-style blurred card container --- */
+.management-container {
+    background: rgba(255, 255, 255, 0.15);
+    /* semi-transparent */
+    backdrop-filter: blur(20px);
+    /* blur effect */
+    -webkit-backdrop-filter: blur(15px);
+    /* for Safari */
+    border-radius: 24px;
+    padding: 25px 25px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    box-sizing: border-box;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+h2 {
+    text-align: left;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(202, 202, 202, 0.837);
+}
+
+.action-buttons button {
+    padding: 8px 18px;
+    border: 1px solid #3e8ab8;
+    border-radius: 9px;
+    background-color: #007baf;
+    cursor: pointer;
+    color: white;
+    font-weight: 500;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.action-buttons button:hover {
+    background-color: #81befa;
+    border-color: #bbb;
+    color: #333;
+}
+
+.action-buttons button:last-child {
+    width: fill-content;
+    /* height: 40px; */
+    border-radius: 9px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.action-buttons button:last-child:hover {
+    background-color: #c0392b;
+}
+
+
+/* --- Table Styles with Rounded Corners --- */
+table {
+    width: 100%;
+    border-collapse: separate;
+    /* Important for border-radius */
+    border-spacing: 0;
+    border: 1px solid #C8AE7D;
+    background-color: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+th,
+td {
+    border: 1px solid #E0D2B3;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 0.9rem;
+}
+
+th {
+    background-color: #ffda8a;
+    font-weight: 600;
+    color: #5C4B30;
+}
+
+tr:nth-child(even) {
+    background-color: #FCFBF8;
+}
+
+tr:hover {
+    background-color: #F1EEE8;
+}
+
+/* Rounded Corners for Table */
+table th:first-child {
+    border-top-left-radius: 16px;
+}
+
+table th:last-child {
+    border-top-right-radius: 8px;
+}
+
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 16px;
+}
+
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 8px;
+}
+
+/* Action Buttons in Table */
+td .action-cell {
+    white-space: nowrap;
+}
+
+td button {
+    padding: 4px 8px;
+    margin-right: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    font-weight: 500;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    /* Added color transition */
+}
+
+td button:last-child {
+    margin-right: 0;
+}
+
+/* --- NEW Styles for the UPDATE button using CLASS --- */
+td button.update-button {
+    /* Target by class */
+    background-color: #07c5ff;
+    /* Yellow background */
+    color: #162c2d;
+    /* Dark text */
+    border-color: #00a4e0;
+    /* Darker yellow border */
+}
+
+td button.update-button:hover {
+    background-color: #00303e;
+    /* Darker yellow on hover */
+    border-color: #282827;
+    color: #e7faff;
+}
+
+
+/* --- Keep Existing Delete button Styles --- */
+td button.delete-button {
+    /* Selects the Delete button via class */
+    background-color: #ff0707;
+    display: block;
+    margin: 6px auto 0 auto;
+    /* margin-top: 6px; */
+    width: 58px;
+    /* Red */
+    color: rgb(255, 255, 255);
+    border-color: #e74c3c;
+    /* Matching border */
+}
+
+td button.delete-button:hover {
+    background-color: #ff897b;
+    border-color: #ffa096;
+    color: #000000;
+}
+
+/* Loading/Error Styles */
+.error-message {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.loading-message {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: #555;
+}

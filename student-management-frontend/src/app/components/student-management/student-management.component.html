@@ -1,0 +1,62 @@
+<!-- src/app/components/student-management/student-management.component.html -->
+<div class="management-container">
+    <h2>Student Management</h2>
+
+    <div class="action-buttons">
+        <!-- Use routerLink to navigate to the add student form -->
+        <button [routerLink]="['/add-student']">Add New Student</button>
+        <!-- Button to trigger the logout method -->
+        <button (click)="logout()">Logout</button>
+    </div>
+
+    <!-- Display loading indicator -->
+    <div *ngIf="isLoading" class="loading-message">Loading student data...</div>
+
+    <!-- Display error message if loading failed -->
+    <div *ngIf="errorMessage && !isLoading" class="error-message">
+        Error: {{ errorMessage }}
+    </div>
+
+    <!-- Display the student table only if not loading, no error, and students exist -->
+    <table *ngIf="!isLoading && !errorMessage && students.length > 0">
+        <thead>
+            <tr>
+                <th>Roll Number</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Department</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>DOB</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through the students array -->
+            <tr *ngFor="let student of students">
+                <td>{{ student.rollNumber }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.course }}</td>
+                <td>{{ student.department }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.phoneNumber }}</td>
+                <td>{{ student.dob | date:'yyyy-MM-dd' }}</td> <!-- Optional: Format date -->
+                <td>{{ student.gender }}</td>
+                <td>{{ student.address }}</td>
+                <td class="action-cell">
+                    <!-- routerLink to the update form, passing the student's id -->
+                    <button class="update-button" [routerLink]="['/update-student', student.id]">Update</button>
+                    <!-- Button to trigger the deleteStudent method -->
+                    <button class="delete-button" (click)="deleteStudent(student.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Message to show if no students are found (and not loading/error) -->
+    <p *ngIf="!isLoading && !errorMessage && students.length === 0">
+        No students found in the system. Click "Add New Student" to add one.
+    </p>
+</div>

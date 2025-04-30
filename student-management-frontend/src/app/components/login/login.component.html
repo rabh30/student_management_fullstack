@@ -1,0 +1,25 @@
+<!-- src/app/components/login/login.component.html -->
+<!-- This div IS the content that :host will center -->
+
+<div class="login-container">
+    <h2>ADMIN-LOGIN</h2>
+    <form (ngSubmit)="onLogin()">
+        <div class="input-group">
+            <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+            <input type="text" name="username" placeholder="Username" [(ngModel)]="username" required
+                autocomplete="username">
+        </div>
+        <div class="input-group">
+            <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
+            <input type="password" name="password" placeholder="Password" [(ngModel)]="password" required
+                autocomplete="current-password">
+
+        </div>
+        <button type="submit" class="login-button">LOGIN</button>
+    </form>
+    <div class="error-message-container">
+        <p class="error-message" [style.visibility]="errorMessage ? 'visible' : 'hidden'">
+            {{ errorMessage || ' ' }}
+        </p>
+    </div>
+</div>

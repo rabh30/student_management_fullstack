@@ -1,0 +1,112 @@
+<!-- src/app/components/student-form/student-form.component.html -->
+<div class="form-container">
+    <h2>{{ pageTitle }}</h2>
+
+    <div *ngIf="isLoading && isUpdateMode" class="loading-message">Loading student data...</div>
+    <div *ngIf="errorMessage" class="error-message global-error">{{ errorMessage }}</div>
+
+    <form (ngSubmit)="onSubmit()" #studentForm="ngForm" *ngIf="!(isLoading && isUpdateMode)">
+
+        <!-- Row 1: Roll Number & Name -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="rollNumber">Roll Number:</label>
+                <input type="text" id="rollNumber" name="rollNumber" [(ngModel)]="student.rollNumber" required
+                    #rollNum="ngModel">
+                <div *ngIf="rollNum.invalid && (rollNum.dirty || rollNum.touched)" class="validation-error">
+                    <span *ngIf="rollNum.errors?.['required']">Roll number is required.</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" [(ngModel)]="student.name" required #name="ngModel">
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="validation-error">
+                    <span *ngIf="name.errors?.['required']">Name is required.</span>
+                </div>
+            </div>
+        </div> <!-- End Row 1 -->
+
+        <!-- Row 2: Course & Department -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="course">Course:</label>
+                <input type="text" id="course" name="course" [(ngModel)]="student.course" required #course="ngModel">
+                <div *ngIf="course.invalid && (course.dirty || course.touched)" class="validation-error">
+                    <span *ngIf="course.errors?.['required']">Course is required.</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="department">Department:</label>
+                <input type="text" id="department" name="department" [(ngModel)]="student.department" required
+                    #dept="ngModel">
+                <div *ngIf="dept.invalid && (dept.dirty || dept.touched)" class="validation-error">
+                    <span *ngIf="dept.errors?.['required']">Department is required.</span>
+                </div>
+            </div>
+        </div> <!-- End Row 2 -->
+
+        <!-- Row 3: Email & Phone -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" [(ngModel)]="student.email" required email #email="ngModel">
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="validation-error">
+                    <span *ngIf="email.errors?.['required']">Required.</span> <!-- Shorter errors -->
+                    <span *ngIf="email.errors?.['email']">Invalid email.</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" [(ngModel)]="student.phoneNumber" required
+                    pattern="[0-9]{10,15}" #phone="ngModel">
+                <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="validation-error">
+                    <span *ngIf="phone.errors?.['required']">Required.</span>
+                    <span *ngIf="phone.errors?.['pattern']">Invalid phone (10-15 digits).</span>
+                </div>
+            </div>
+        </div> <!-- End Row 3 -->
+
+        <!-- Address (Full Width - NOT in a form-row) -->
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="3" [(ngModel)]="student.address" required
+                #address="ngModel"></textarea>
+            <div *ngIf="address.invalid && (address.dirty || address.touched)" class="validation-error">
+                <span *ngIf="address.errors?.['required']">Address is required.</span>
+            </div>
+        </div>
+
+        <!-- Row 4: DOB & Gender -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" [(ngModel)]="student.dob" required #dob="ngModel">
+                <div *ngIf="dob.invalid && (dob.dirty || dob.touched)" class="validation-error">
+                    <span *ngIf="dob.errors?.['required']">Date of birth is required.</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" [(ngModel)]="student.gender" required #gender="ngModel">
+                    <option value="" disabled selected>Select Gender</option> <!-- Added default empty option -->
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+                <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="validation-error">
+                    <span *ngIf="gender.errors?.['required']">Gender is required.</span>
+                </div>
+            </div>
+        </div> <!-- End Row 4 -->
+
+        <!-- Action Buttons (Remain the same) -->
+        <div class="action-buttons">
+            <button type="submit" class="btn btn-save" [disabled]="studentForm.invalid || isLoading">
+                {{ isLoading ? 'Saving...' : (isUpdateMode ? 'Update Student' : 'Add Student') }}
+            </button>
+            <button type="button" class="btn btn-cancel" (click)="onCancel()" [disabled]="isLoading">
+                Cancel
+            </button>
+        </div>
+    </form>
+</div>
