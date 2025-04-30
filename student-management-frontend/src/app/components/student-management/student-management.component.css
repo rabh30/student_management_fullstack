@@ -8,7 +8,8 @@
     min-height: 100vh;
     padding: 40px;
     box-sizing: border-box;
-    background-image: url('macos.jpg');
+
+    background-image: url('/assets/macos.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -51,9 +52,9 @@ h2 {
 
 .action-buttons button {
     padding: 8px 18px;
-    border: 1px solid #3e8ab8;
+    border: 1px solid #0076df;
     border-radius: 9px;
-    background-color: #007baf;
+    background-color: #007aff;
     cursor: pointer;
     color: white;
     font-weight: 500;
@@ -70,7 +71,7 @@ h2 {
     width: fill-content;
     /* height: 40px; */
     border-radius: 9px;
-    background-color: #e74c3c;
+    background-color: #ff3c26;
     color: white;
     border: none;
     cursor: pointer;
@@ -159,43 +160,67 @@ td button:last-child {
     margin-right: 0;
 }
 
-/* --- NEW Styles for the UPDATE button using CLASS --- */
-td button.update-button {
-    /* Target by class */
-    background-color: #07c5ff;
-    /* Yellow background */
-    color: #162c2d;
-    /* Dark text */
-    border-color: #00a4e0;
-    /* Darker yellow border */
+td.action-cell {
+    text-align: center;
+    /* Center the buttons horizontally */
+    vertical-align: middle;
+    /* Ensure vertical alignment */
+    white-space: nowrap;
+    /* Prevent buttons wrapping */
 }
 
-td button.update-button:hover {
-    background-color: #00303e;
-    /* Darker yellow on hover */
-    border-color: #282827;
-    color: #e7faff;
+/* Common styles for buttons inside the action cell */
+td.action-cell button {
+    padding: 5px 10px;
+    /* Adjusted padding */
+    font-size: 0.85rem;
+    /* Adjusted size */
+    cursor: pointer;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    font-weight: 500;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    display: inline-block;
+    /* Ensure they behave well with text-align */
+    width: auto;
+    /* Let button size naturally */
+    min-width: 65px;
+    /* NEW: Set a minimum width for consistency */
+    margin-bottom: 5px;
+    /* NEW: Add space below each button */
 }
 
+/* Remove bottom margin from the very last button in the cell */
+td.action-cell button:last-child {
+    margin-bottom: 0;
+}
 
-/* --- Keep Existing Delete button Styles --- */
-td button.delete-button {
-    /* Selects the Delete button via class */
-    background-color: #ff0707;
-    display: block;
-    margin: 6px auto 0 auto;
-    /* margin-top: 6px; */
-    width: 58px;
+/* Update button Styles */
+td.action-cell button.update-button {
+    background-color: #0076df;
+    /* Blue background */
+    color: #ffffff;
+    /* White text */
+    border-color: #0056b3;
+}
+
+td.action-cell button.update-button:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+    color: #ffffff;
+}
+
+/* Delete button Styles */
+td.action-cell button.delete-button {
+    background-color: #ff3c26;
     /* Red */
-    color: rgb(255, 255, 255);
+    color: white;
     border-color: #e74c3c;
-    /* Matching border */
 }
 
-td button.delete-button:hover {
-    background-color: #ff897b;
-    border-color: #ffa096;
-    color: #000000;
+td.action-cell button.delete-button:hover {
+    background-color: #c0392b;
+    border-color: #c0392b;
 }
 
 /* Loading/Error Styles */

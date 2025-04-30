@@ -11,7 +11,7 @@
     box-sizing: border-box;
     background-color: #f4f7f6;
     /* Default light gray background */
-    background-image: url('milad-fakurian-PGdW_bHDbpI-unsplash.jpg');
+    background-image: url('/assets/milad-fakurian-PGdW_bHDbpI-unsplash.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -104,7 +104,7 @@ label {
 }
 
 :host(.mode-add) label {
-    color: #005b14;
+    color: #002e0a;
     /* Example: Darker Green */
 }
 
@@ -179,17 +179,17 @@ select:focus {
 }
 
 .action-buttons button[type="submit"] {
-    background-color: #28a745;
-    color: white;
+    background-color: #27c239;
+    color: #ffffff;
 }
 
 /* Default Add */
 .action-buttons button[type="submit"]:hover {
-    background-color: #218838;
+    background-color: #00923d;
 }
 
 .action-buttons button[type="button"] {
-    background-color: #6c757d;
+    background-color: #ff3c3c;
     color: white;
 }
 

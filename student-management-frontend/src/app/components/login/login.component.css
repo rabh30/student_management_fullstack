@@ -1,131 +1,232 @@
 /* src/app/components/login/login.component.css */
 
-/* Styles for the component host element (<app-login>) */
 :host {
     /* --- Background Image Settings --- */
-    /* Path relative to the root /assets/ folder */
-    background-image: url(atomfall-Photoroom.png);
+    background-image: url('/assets/atomfall-Photoroom.png');
+    /* Correct path */
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 
-    /* --- Layout for Centering the .login-container --- */
+    /* --- Layout for Centering the CONTENT WRAPPER --- */
     display: flex;
-    /* Use flexbox */
     align-items: center;
-    /* Vertical centering */
     justify-content: center;
-    /* Horizontal centering */
     width: 100%;
     min-height: 100vh;
-    /* Full viewport height */
-    padding: 20px;
-    /* Padding around the centered box */
+    padding: 30px;
     box-sizing: border-box;
 }
 
-/* .parent-login-container {
+/* Wrapper for the two cards */
+.content-wrapper {
+    display: flex;
+    gap: 0;
+    /* --- REMOVED GAP --- */
     width: 100%;
-    height: 100%;
-    color: red;
-} */
+    max-width: 900px;
+}
 
-/* Styles for the glassmorphism login box */
-.login-container {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px;
+/* Common styles for BOTH cards */
+.card {
+    
+    /* border-radius: 20px; <-- REMOVED from common class */
     border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    /* Remove border between cards */
+    border-right-width: 0;
+    /* Left card won't have right border */
+    border-left-width: 0;
+    /* Right card won't have left border */
 
-    padding: 45px 40px;
-    max-width: 400px;
-    width: 100%;
+    padding: 40px 35px;
+    flex: 1;
+    box-sizing: border-box;
+    color: var(--color-white);
+}
+
+/* --- Specific Border Radius and Border Widths --- */
+.info-card {
+    background-color: rgb(30, 35, 40);
+    /* Left card */
+    border-radius: 20px 0 0 20px;
+    /* TL, TR, BR, BL */
+    border-left-width: 1px;
+    /* Keep left border */
+    border-right-width: 0;
+    /* Remove right border */
+    
+    /* Modified box shadow: only left side */
+    box-shadow: -8px 0 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    /* Right card */
+    border-radius: 0 20px 20px 0;
+    /* TL, TR, BR, BL */
+    border-left-width: 0;
+    /* Remove left border */
+    border-right-width: 1px;
+    /* Keep right border */
+    
+    /* Modified box shadow: only right side */
+    box-shadow: 8px 0 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+/* Styles specific to the Login Card */
+.login-card {
     text-align: center;
-    color: var(--color-white);
 }
 
-/* --- REST OF THE STYLES for h2, input, button, etc. remain the same as before --- */
-h2 {
-    color: var(--color-white);
+.login-card h2 {
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-top: 0;
-    margin-bottom: 40px;
-    word-spacing: 10px;
+    margin-bottom: 35px;
 }
 
-.input-group {
-    position: relative;
-    margin-bottom: 25px;
+/* Styles specific to the Info Card */
+.info-card {
+    text-align: left;
 }
 
-.input-icon {
-    position: absolute;
-    left: 18px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: rgba(255, 255, 255, 0.7);
+.info-card h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--color-white);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+.info-card h4 {
     font-size: 1.1rem;
-    pointer-events: none;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.9);
 }
 
-input[type="text"],
-input[type="password"] {
+.info-card p.description {
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 20px;
+}
+
+.team-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.team-list li {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 8px;
+}
+
+.team-list li strong {
+    color: var(--color-white);
+    font-weight: 500;
+}
+
+/* --- Styles for Login Form elements --- */
+.login-card .input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.login-card input[type="text"],
+.login-card input[type="password"] {
     width: 100%;
-    padding: 15px 15px 15px 50px;
+    padding: 14px 20px;
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 24px;
-    font-size: 1rem;
+    border-radius: 30px;
+    font-size: 0.95rem;
     color: var(--color-white);
     outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-input::placeholder {
-    color: white;
+.login-card input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
     font-weight: 300;
 }
 
-input:focus {
+.login-card input:focus {
     border-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
 }
 
-.login-button {
+.login-card .login-button {
     width: 100%;
     padding: 14px 20px;
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.5px;
     cursor: pointer;
-    border-radius: 24px;
-    margin-top: 20px;
+    border-radius: 30px;
+    margin-top: 15px;
     background-color: var(--color-white);
     color: var(--color-text-primary);
     border: none;
     transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-.login-button:hover {
+.login-card .login-button:hover {
     background-color: #f0f0f0;
 }
 
-.login-button:active {
+.login-card .login-button:active {
     transform: scale(0.98);
 }
 
-.error-message-container {
-    margin-top: 20px;
+.login-card .error-message-container {
+    margin-top: 15px;
     min-height: 1.2em;
 }
 
-.error-message {
-    color: #e50f0f;
+.login-card .error-message {
+    color: #ff8a8a;
     font-size: 0.9rem;
     font-weight: 500;
     transition: visibility 0s linear;
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        /* Stack cards vertically */
+        max-width: 450px;
+        gap: 0;
+        /* Ensure no gap when stacked */
+    }
+
+    .card {
+        flex: none;
+        /* Reset flex property */
+        /* --- RESET BORDERS for stacked view --- */
+        border-radius: 20px;
+        /* Reset to fully rounded */
+        border-width: 1px;
+        /* Ensure all borders are visible */
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    }
+
+    .info-card {
+        order: 1;
+        margin-bottom: 20px;
+        /* Add margin back when stacked */
+    }
+
+    .login-card {
+        order: 2;
+    }
 }

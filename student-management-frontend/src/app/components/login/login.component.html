@@ -1,25 +1,44 @@
 <!-- src/app/components/login/login.component.html -->
-<!-- This div IS the content that :host will center -->
 
-<div class="login-container">
-    <h2>ADMIN-LOGIN</h2>
-    <form (ngSubmit)="onLogin()">
-        <div class="input-group">
-            <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
-            <input type="text" name="username" placeholder="Username" [(ngModel)]="username" required
-                autocomplete="username">
-        </div>
-        <div class="input-group">
-            <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
-            <input type="password" name="password" placeholder="Password" [(ngModel)]="password" required
-                autocomplete="current-password">
+<div class="content-wrapper">
 
-        </div>
-        <button type="submit" class="login-button">LOGIN</button>
-    </form>
-    <div class="error-message-container">
-        <p class="error-message" [style.visibility]="errorMessage ? 'visible' : 'hidden'">
-            {{ errorMessage || ' ' }}
+    <!-- Information Card (Left - Comes First in HTML Now) -->
+    <div class="card info-card">
+        <h3>Student Management System</h3>
+        <p class="description">
+            A CRUD application built with Angular and Spring Boot to manage student records efficiently. Features
+            include secure admin login and comprehensive student data handling.
         </p>
+        <h4>Team Members</h4>
+        <ul class="team-list">
+            <li><strong>Saurabh Kumar</strong> - Full Stack Developer</li>
+            <li><strong>Ashwani Kumar</strong> - Full Stack Developer</li>
+            <li><strong>Anish Kumar</strong> - Full Stack Developer</li>
+            <li><strong>Supriya</strong> - Full Stack Developer</li>
+            <li><strong>Meghana</strong> - Full Stack Developer</li>
+            <!-- Add more team members if applicable -->
+        </ul>
     </div>
-</div>
+
+    <!-- Login Card (Right - Comes Second in HTML Now) -->
+    <div class="card login-card">
+        <h2>ADMIN-LOGIN</h2>
+        <form (ngSubmit)="onLogin()">
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Username" [(ngModel)]="username" required
+                    autocomplete="username">
+            </div>
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Password" [(ngModel)]="password" required
+                    autocomplete="current-password">
+            </div>
+            <button type="submit" class="login-button">LOGIN</button>
+        </form>
+        <div class="error-message-container">
+            <p class="error-message" [style.visibility]="errorMessage ? 'visible' : 'hidden'">
+                {{ errorMessage || ' ' }}
+            </p>
+        </div>
+    </div>
+
+</div> <!-- End content-wrapper -->
