@@ -1,17 +1,40 @@
-# 1. Base Image: Use Java 21
-FROM openjdk:21-jdk-slim
+# --- Stage 1: Build the application using Maven ---
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 
-# 2. Working Directory: Create /app directory
+# Set the working directory inside the build stage
+WORKDIR /workspace
+
+# Copy the Maven project file first to leverage Docker cache for dependencies
+COPY pom.xml .
+
+# Copy the Maven wrapper files (if you use ./mvnw) - Optional but good practice
+COPY .mvn/ .mvn
+COPY mvnw .
+
+# Download dependencies (this layer is cached if pom.xml doesn't change)
+# Using ./mvnw if available, otherwise system maven
+RUN if [ -f mvnw ]; then ./mvnw dependency:go-offline; else mvn dependency:go-offline; fi
+
+# Copy the rest of your source code
+COPY src ./src
+
+# Build the application JAR file
+# Using ./mvnw if available, otherwise system maven
+RUN if [ -f mvnw ]; then ./mvnw package -DskipTests; else mvn package -DskipTests; fi
+# Note: The JAR will be in /workspace/target/
+
+# --- Stage 2: Create the final lightweight image using JRE ---
+# Use a JRE image matching your Java version
+FROM openjdk:21-jre-slim
+
+# Set the working directory
 WORKDIR /app
 
-# 3. Copy JAR File: Choose ONE of the following lines based on your build tool
-#    Maven:
-COPY target/*.jar app.jar
-#    Gradle:
-# COPY build/libs/*.jar app.jar
+# Copy the built JAR file from the 'build' stage
+COPY --from=build /workspace/target/*.jar app.jar
 
-# 4. Expose Port: (Usually 8080 for Spring Boot)
+# Expose the port the application runs on
 EXPOSE 8080
 
-# 5. Entry Point: Run the JAR file
+# Command to run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
