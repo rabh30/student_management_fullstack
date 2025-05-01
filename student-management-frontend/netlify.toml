@@ -1,0 +1,24 @@
+# Netlify build configuration for the frontend
+
+[build]
+  # Command to build the Angular app for production
+  command = "ng build --configuration production"
+
+  # The directory containing the built frontend files, relative to the Base directory.
+  publish = "dist/student-management-frontend"
+
+  # Base directory - Although set in UI, defining here can ensure consistency.
+  # Netlify typically uses the UI setting if both are present, but let's be explicit.
+  # Ensure this matches your UI setting.
+  # base = "student-management-frontend" # Usually inferred from UI setting, uncomment if needed
+
+# Optional: Specify Node.js version if required by Angular version
+# [build.environment]
+#   NODE_VERSION = "18" # Example: Use Node.js version 18
+
+# Optional: Redirects and rewrites for single-page apps (SPA)
+# This ensures direct navigation to routes like /login works
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
