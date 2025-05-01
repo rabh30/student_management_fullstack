@@ -5,7 +5,7 @@
   command = "ng build --configuration production"
 
   # The directory containing the built frontend files, relative to the Base directory.
-  publish = "dist/student-management-frontend"
+  publish = "dist/student-management-frontend/browser"
 
   # Base directory - Although set in UI, defining here can ensure consistency.
   # Netlify typically uses the UI setting if both are present, but let's be explicit.
