@@ -22,7 +22,7 @@ export interface Student {
     providedIn: 'root' // Makes the service available application-wide
 })
 export class StudentService {
-    // private apiUrl = 'http://localhost:8080/students'; // <-- ADJUST THIS URL
+    // private apiUrl = 'http://localhost:8080/students'; // <-- ADJUSTING THIS URL
 private apiUrl = 'https://student-management-fullstack.onrender.com/students'; // <-- ADJUSTED URL
 
     constructor(private http: HttpClient) { }
