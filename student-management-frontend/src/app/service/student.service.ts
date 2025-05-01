@@ -22,9 +22,7 @@ export interface Student {
     providedIn: 'root' // Makes the service available application-wide
 })
 export class StudentService {
-    // !!! IMPORTANT: Replace with your ACTUAL backend students API base URL !!!
     // private apiUrl = 'http://localhost:8080/students'; // <-- ADJUST THIS URL
-    // !!! IMPORTANT: Replace with your ACTUAL Render backend students API URL !!!
 private apiUrl = 'https://student-management-fullstack.onrender.com/students'; // <-- ADJUSTED URL
 
     constructor(private http: HttpClient) { }

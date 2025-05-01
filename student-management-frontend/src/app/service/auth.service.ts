@@ -8,9 +8,8 @@ import { Router } from '@angular/router';
     providedIn: 'root'
 })
 export class AuthService {
-    // !!! Make sure this URL is exactly correct !!!
+  
     // private apiUrl = 'http://localhost:8080/admin/login'; // Your confirmed login URL
-    // !!! IMPORTANT: Replace with your ACTUAL Render backend students API URL !!!
 private apiUrl = 'https://student-management-fullstack.onrender.com/admin/login'; // <-- ADJUSTED URL
 
     private loggedIn = new BehaviorSubject<boolean>(this.hasToken());
