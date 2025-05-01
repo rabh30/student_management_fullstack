@@ -16,7 +16,8 @@ public class CorsConfig {
                 // This configures CORS globally for all controllers ("/**")
                 registry.addMapping("/**")
                         // Allow requests specifically from your Angular app's origin
-                        .allowedOrigins("http://localhost:4200")
+//                        .allowedOrigins("http://localhost:4200")
+                        .allowedOrigins("https://wonderful-mermaid-d25886.netlify.app")
                         // Allow the HTTP methods your Angular app will use
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         // Allow all headers sent by the Angular app/browser
