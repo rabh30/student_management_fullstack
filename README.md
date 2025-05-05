@@ -52,7 +52,6 @@ This project was built as part of a **CAPGEMINI certification course** to demons
 
 ## 📷 Project Screenshots
 
->
 > Login Page
 >![Screenshot (6943)](https://github.com/user-attachments/assets/b5ded1a9-560c-49ae-91bb-27aaa95303b1)
 
@@ -65,8 +64,8 @@ This project was built as part of a **CAPGEMINI certification course** to demons
 >Update Interfaces
 >![Screenshot (6948)](https://github.com/user-attachments/assets/19e3bfc0-1a94-4af4-8a1c-61e5e91185e5)
 
->📷 Deployment Screenshots
->
+📷 Deployment Screenshots
+
 >Frontend Hosting - Netlify - Screenshot:
 >![Screenshot (6952)](https://github.com/user-attachments/assets/65d1d148-14d1-41f1-b4c1-7442f149ab19)
 
@@ -80,7 +79,7 @@ This project was built as part of a **CAPGEMINI certification course** to demons
 
 ---
 
-## 📁 Folder Structure
+##📁 Folder Structure
 student_management_fullstack/
 ├── student-management-backend/ # Spring Boot backend
 │ └── src/
