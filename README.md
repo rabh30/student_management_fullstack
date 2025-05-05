@@ -79,9 +79,9 @@ This project was built as part of a **CAPGEMINI certification course** to demons
 
 ---
 
-##📁 Folder Structure
-student_management_fullstack/
-├── student-management-backend/ # Spring Boot backend
-│ └── src/
-├── student-management-frontend/ # Angular frontend
-│ └── src/
+##📁 Folder Structure  
+student_management_fullstack/  
+├── student-management-backend/ # Spring Boot backend  
+│ └── src/  
+├── student-management-frontend/ # Angular frontend  
+│ └── src/  
