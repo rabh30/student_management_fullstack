@@ -1,4 +1,4 @@
-![Screenshot (6952)](https://github.com/user-attachments/assets/eb0a6337-b48e-45ee-83dd-e5b3cb8814d6)# Student Management System
+# Student Management System
 
 A full-stack **Student Management System** built with **Angular (Frontend)**, **Spring Boot (Backend)**, and **MySQL (Database)**. This project provides an interface for admin users to perform CRUD operations on student records.
 
