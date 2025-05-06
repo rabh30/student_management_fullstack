@@ -7,8 +7,8 @@ A full-stack **Student Management System** built with **Angular (Frontend)**, **
 - **Frontend (Angular)**: [Hosted on Netlify](https://wonderful-mermaid-d25886.netlify.app/login)  
 - **Backend (Spring Boot)**: Hosted on **Render** 
 - **Database (MySQL)**: Hosted on **Railway**
-- **Project PPT link**: https://docs.google.com/presentation/d/16WIN5na3B2PLfWYMxHdXZT3_uYhtBLC_/edit?usp=sharing&ouid=114418026526916893164&rtpof=true&sd=true
-- **Project Report link**: https://docs.google.com/document/d/1aQ5mP0dKVzZHGaW1qLgExG4w3dWrcp9N/edit?usp=sharing&ouid=114418026526916893164&rtpof=true&sd=true  
+- **Project PPT link**: [🔗 Link](https://docs.google.com/presentation/d/16WIN5na3B2PLfWYMxHdXZT3_uYhtBLC_/edit?usp=sharing&ouid=114418026526916893164&rtpof=true&sd=true)  
+- **Project Report link**: [🔗 Link](https://docs.google.com/document/d/1aQ5mP0dKVzZHGaW1qLgExG4w3dWrcp9N/edit?usp=sharing&ouid=114418026526916893164&rtpof=true&sd=true)  
 
 ---
 
